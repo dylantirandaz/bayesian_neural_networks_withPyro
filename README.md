@@ -25,4 +25,13 @@ An activation function (Tanh) is applied to the output of the first layer. Note:
 
 ### Forward Method
 The `forward` method defines how the input data flows through the network:
-1. The input `x` is reshaped and passed through
+1. The input `x` is reshaped and passed through the first layer with the activation function applied.
+2. The output of the first layer is passed through the second layer to produce the mean (`mu`).
+3. A sample for the standard deviation (`sigma`) is drawn from a Gamma distribution.
+4. The observed data is modeled using a Normal distribution, where the mean is `mu` and the standard deviation is `sigma`.
+
+### Probabilistic Modeling
+The code uses Pyro's `plate` construct to indicate that the observations are independent and identically distributed (i.i.d.) across the data points.
+
+## Summary
+This implementation of a Bayesian Neural Network allows for uncertainty quantification in predictions, making it suitable for applications where understanding the confidence of predictions is crucial. The network learns from input data while incorporating prior beliefs about the weights and biases through probabilistic sampling.

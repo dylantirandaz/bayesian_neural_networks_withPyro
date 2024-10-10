@@ -38,8 +38,7 @@ class MyFirstBNN(PyroModule):
 
 
 
-#markov chain monte carlo sampler
-
+#markov chain monte carlo sampler (MCMC)
 model = MyFirstBNN()
 
 #set random pyro seed
